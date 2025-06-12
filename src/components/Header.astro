@@ -20,11 +20,9 @@ import { SITE_TITLE } from '../consts';
 			<HeaderLink href="/blog">Blog</HeaderLink>
 			<HeaderLink href="/about">About</HeaderLink>
 		</div>
-		<div class="social-links">
-			
-
-        
-		</div>
+		<div class="order-button">
+            <a href="/order" class="order-online">Order Online</a>
+        </div>
 	</nav>
 </header>
 <style>
@@ -68,5 +66,69 @@ import { SITE_TITLE } from '../consts';
 		}
 	}
 
+	.order-online {
+        background-color: #FF4136; /* Color rojo */
+        color: white;
+        padding: 0.8em 1.5em;
+        border-radius: 25px;
+        font-weight: bold;
+        text-decoration: none;
+        transition: background-color 0.3s ease;
+    }
+
+     .order-online {
+        background-color: #FF4136;
+        color: white;
+        padding: 0.8em 1.5em;
+        border-radius: 25px;
+        font-weight: bold;
+        text-decoration: none;
+        transition: all 0.3s ease; /* Cambiado para incluir todas las propiedades */
+        display: inline-block; /* Añadido para mejor soporte de transform */
+    }
+
+    .order-online:hover {
+        background-color: #E60000;
+        transform: scale(1.05);
+    }
+
+	nav a {
+        padding: 1em 0.5em;
+        color: var(--black);
+        text-decoration: none;
+        transition: all 0.3s ease;
+        border-radius: 25px;
+        margin: 0 0.5em;
+    }
+
+    .internal-links a {
+        padding: 0.8em 1.5em;
+        font-weight: bold;
+        background-color: transparent;
+        transition: all 0.3s ease;
+    }
+
+    .internal-links a:hover {
+        background-color: #FF4136;
+        color: white;
+        transform: scale(1.05);
+    }
+
+    /* Mantener el estilo existente de Order Online */
+    .order-online {
+        background-color: #FF4136;
+        color: white;
+        padding: 0.8em 1.5em;
+        border-radius: 25px;
+        font-weight: bold;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        display: inline-block;
+    }
+
+    .order-online:hover {
+        background-color: #E60000;
+        transform: scale(1.05);
+    }
 	
 </style>

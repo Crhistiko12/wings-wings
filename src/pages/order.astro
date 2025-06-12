@@ -1,0 +1,71 @@
+---
+import Layout from '../layouts/BlogPost.astro';
+import logo from '../assets/logotipo-sin_fondo.png';
+---
+
+<Layout 
+    title="Wings Wings Wings & Things"
+    description="Ordena tus alitas en línea"
+    pubDate={new Date()}
+    
+>
+    <main>
+        <div class="order-container">
+    <form class="order-form">
+        <div class="form-group">
+            <label for="name">Nombre completo:</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+
+        <div class="form-group">
+            <label for="phone">Teléfono:</label>
+            <input type="tel" id="phone" name="phone" required>
+        </div>
+
+        <div class="form-group">
+            <label for="wings">Alitas (cantidad):</label>
+            <select id="wings" name="wings" required>
+                <option value="6">6 piezas</option>
+                <option value="12">12 piezas</option>
+                <option value="24">24 piezas</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="sauce">Salsa:</label>
+            <select id="sauce" name="sauce" required>
+                <option value="bbq">BBQ</option>
+                <option value="buffalo">Buffalo</option>
+                <option value="miel-mostaza">Miel Mostaza</option>
+                <option value="lemon-pepper">Lemon Pepper</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="address">Dirección de entrega:</label>
+            <textarea id="address" name="address" rows="3" required></textarea>
+        </div>
+
+        <button type="submit" class="submit-button">Realizar Pedido</button>
+    </form>
+</div>
+    </main>
+</Layout>
+<style>
+    main {
+        margin: auto;
+        padding: 1rem;
+        width: 800px;
+        max-width: calc(100% - 2rem);
+        color: rgb(var(--gray-dark));
+        font-size: 20px;
+        line-height: 1.6;
+    }
+    .order-container {
+        margin: 2rem 0;
+        padding: 2rem;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 2px 8px rgba(var(--black), 5%);
+    }
+</style>

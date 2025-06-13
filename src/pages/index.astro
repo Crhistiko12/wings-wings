@@ -13,36 +13,141 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 	<body>
 		<Header />
 		<main>
-			<h1>🧑‍🚀 Hello, Astronaut!</h1>
-			<p>
-				Welcome to the official <a href="https://astro.build/">Astro</a> blog starter template. This
-				template serves as a lightweight, minimally-styled starting point for anyone looking to build
-				a personal website, blog, or portfolio with Astro.
-			</p>
-			<p>
-				This template comes with a few integrations already configured in your
-				<code>astro.config.mjs</code> file. You can customize your setup with
-				<a href="https://astro.build/integrations">Astro Integrations</a> to add tools like Tailwind,
-				React, or Vue to your project.
-			</p>
-			<p>Here are a few ideas on how to get started with the template:</p>
-			<ul>
-				<li>Edit this page in <code>src/pages/index.astro</code></li>
-				<li>Edit the site header items in <code>src/components/Header.astro</code></li>
-				<li>Add your name to the footer in <code>src/components/Footer.astro</code></li>
-				<li>Check out the included blog posts in <code>src/content/blog/</code></li>
-				<li>Customize the blog post page layout in <code>src/layouts/BlogPost.astro</code></li>
-			</ul>
-			<p>
-				Have fun! If you get stuck, remember to
-				<a href="https://docs.astro.build/">read the docs</a>
-				or <a href="https://astro.build/chat">join us on Discord</a> to ask questions.
-			</p>
-			<p>
-				Looking for a blog template with a bit more personality? Check out
-				<a href="https://github.com/Charca/astro-blog-template">astro-blog-template</a>
-				by <a href="https://twitter.com/Charca">Maxi Ferreira</a>.
-			</p>
+			<main>
+    <h1 class="main-title">¡Elige tu Favorito!</h1>
+    
+    <div class="cards-container">
+        <div class="card wings">
+            <img src="/src/assets/alitas-home.jpg" alt="Alitas" class="card-image">
+            <h2>Alitas</h2>
+            <ul class="features">
+                <li>🔥 6, 12 o 24 piezas</li>
+                <li>🌶️ Diferentes niveles de picante</li>
+                <li>🍯 Salsas exclusivas</li>
+                <li>🥕 Acompañamiento de vegetales</li>
+            </ul>
+            <a href="/order" class="order-button">Ordenar Alitas</a>
+        </div>
+
+        <div class="vs-circle">VS</div>
+
+        <div class="card burgers">
+            <img src="/src/assets/hamburguesa.jpg" alt="Hamburguesas" class="card-image">
+            <h2>Hamburguesas</h2>
+            <ul class="features">
+                <li>🍔 100% Carne de res</li>
+                <li>🧀 Queso fundido</li>
+                <li>🥬 Vegetales frescos</li>
+                <li>🥓 Extras deliciosos</li>
+            </ul>
+            <a href="/order" class="order-button">Ordenar Hamburguesa</a>
+        </div>
+    </div>
+</main>
+
+<style>
+    .main-title {
+        text-align: center;
+        color: #333;
+        margin-bottom: 2em;
+    }
+
+    .cards-container {
+       display: flex;
+        justify-content: center;
+        align-items: stretch;
+        gap: 2em;
+        padding: 1em;
+        max-width: 1200px;
+        margin: 0 auto;
+        flex: 1; /* Añadido para distribuir el espacio equitativamente */
+    }
+
+    .card {
+         background: white;
+        border-radius: 15px;
+        padding: 2em;
+        width: 400px; /* Aumentado de 350px a 400px */
+        min-height: 500px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        flex: 1; /* Añadido para que ambas tarjetas tengan el mismo ancho */
+    }
+
+    .card:hover {
+        transform: translateY(-10px);
+    }
+
+    .card-image {
+        width: 100%; /* Cambiado a 100% */
+        height: 200px; /* Altura fija para todas las imágenes */
+        object-fit: cover;
+        border-radius: 10px;
+        margin-bottom: 1em;
+    }
+
+    .card h2 {
+        text-align: center;
+        color: #333;
+        margin-bottom: 1em;
+    }
+
+    .features {
+        list-style: none;
+        padding: 0;
+        margin-bottom: 2em;
+    }
+
+    .features li {
+         flex-grow: 1; /* Añadido para ocupar espacio disponible */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 1em 0;
+    }
+
+    .vs-circle {
+        background: #FF4136;
+        color: white;
+        width: 60px;
+        height: 60px;
+        border-radius: 60%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        font-size: 1.5em;
+    }
+
+    .order-button {
+        display: block;
+        background: #FF4136;
+        color: white;
+        text-align: center;
+        padding: 1em;
+        border-radius: 25px;
+        text-decoration: none;
+        font-weight: bold;
+        transition: background-color 0.3s ease;
+    }
+
+    .order-button:hover {
+        background: #E60000;
+    }
+
+    @media (max-width: 768px) {
+        .cards-container {
+            flex-direction: column;
+        }
+
+        .vs-circle {
+            margin: 1em 0;
+        }
+    }
+</style>
 		</main>
 		<Footer />
 	</body>

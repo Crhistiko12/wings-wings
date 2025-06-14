@@ -3,212 +3,106 @@ import HeaderLink from './HeaderLink.astro';
 import { SITE_TITLE } from '../consts';
 ---
 
-<header>
-	<nav>
-		 <div class="logo-container">
-            <img 
-                src="/src/assets/logotipo-sin_fondo.png" 
-                alt={SITE_TITLE} 
-                width="150" 
-                height="75"
-                class="site-logo" 
-            />
-        </div>
-		<h2><a href="/">{SITE_TITLE}</a></h2>
-		<div class="internal-links">
-            
-			<HeaderLink href="/">Home</HeaderLink>
-			
-			<HeaderLink href="/about">About</HeaderLink>
-		</div>
-		<div class="order-button">
-            <a href="/order" class="order-online">Order Online</a>
-        </div>
-	</nav>
+<header class="navbar">
+  <div class="navbar-container">
+    <!-- Logo -->
+    <a href="/" class="logo">
+      <img src="/src/assets/logotipo-sin_fondo.png" alt="Tu Logo" width="120" height="40" />
+    </a>
+
+    <!-- Menú de navegación -->
+    <nav class="nav-links">
+      <a href="/" class="nav-link">Home</a>
+      <a href="/about" class="nav-link">About</a>
+      <a href="/menu" class="nav-link">Menu</a>
+      <a href="/contact" class="nav-link">Contact</a>
+    </nav>
+
+    <!-- Botón CTA -->
+    <div class="nav-actions">
+      <a href="/order" class="order-button">Order Online</a>
+    </div>
+  </div>
 </header>
-<style>
 
-    /* Estilos base del nav-bar */
-.site-header {
- 
-  padding: 1rem;
-  
-  position: sticky;
-  top: 0;
-  z-index: 100;
-}
-
-.main-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.nav-links {
-  display: flex;
-  gap: 1.5rem;
-}
-
-.nav-link {
-  text-decoration: none;
-  color: #333;
-  font-weight: 500;
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
-  transition: all 0.3s ease;
-}
-
-.nav-link:hover {
-  background-color: #023014;
-}
-
-/* Hamburguesa para móviles */
-.menu-toggle {
-  display: none;
-  background: none;
-  border: none;
-  font-size: 1.5rem;
-  cursor: pointer;
-  padding: 0.5rem;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .nav-links {
-    position: fixed;
-    top: 70px;
+<style lang="scss" scoped>
+  .navbar {
+    position: fixed; /* Hace que la navbar sea pegajosa */
+    top: 0;
     left: 0;
     width: 100%;
-    background-color: #fff;
-    flex-direction: column;
+    z-index: 1000; /* Asegura que esté por encima de otros elementos */
+    background: transparent; /* Fondo transparente inicial */
+    transition: all 0.3s ease; /* Suaviza el cambio de color al hacer scroll */
+    padding: 1rem 2rem;
+
+    /* Efecto al hacer scroll (como mypoint.click) */
+    &.scrolled {
+      background: rgba(255, 255, 255, 0.95); /* Fondo blanco con transparencia */
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+  }
+
+  .navbar-container {
+    display: flex;
     align-items: center;
-    gap: 0;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease;
+    max-width: 1200px;
+    margin: 0 auto;
   }
-  
-  .nav-links.active {
-    max-height: 300px;
-    padding: 1rem 0;
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    margin-left: 3rem; /* Espacio entre logo y links */
   }
-  
+
   .nav-link {
-    width: 100%;
-    text-align: center;
-    padding: 1rem;
+    color: white; /* Texto blanco inicial */
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+
+    &:hover {
+      color: #ff5a5f; /* Color al hover (como el botón) */
+    }
+
+    /* Cambia color del texto cuando el navbar tiene fondo */
+    .scrolled & {
+      color: #333;
+    }
   }
-  
-  .menu-toggle {
-    display: block;
+
+  .nav-actions {
+    margin-left: auto; /* Empuja el botón a la derecha */
   }
-}
-	header {
-		margin: 0;
-		padding: 0 1em;
-		background: #FFFFF0;
-		box-shadow: 0 2px 8px rgba(var(--black), 5%);
-	}
-	h2 {
-		margin: 0;
-		font-size: 1em;
-	}
 
-	h2 a,
-	h2 a.active {
-		text-decoration: none;
-	}
-	nav {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-	}
-	nav a {
-		padding: 1em 0.5em;
-		color: var(--black);
-		border-bottom: 4px solid transparent;
-		text-decoration: none;
-	}
-	nav a.active {
-		text-decoration: none;
-		border-bottom-color: var(--accent);
-	}
-	.social-links,
-	.social-links a {
-		display: flex;
-	}
-	@media (max-width: 720px) {
-		.social-links {
-			display: none;
-		}
-	}
+  .order-button {
+    background: #ff5a5f; /* Rojo coral como mypoint.click */
+    color: white;
+    padding: 0.7rem 1.5rem;
+    border-radius: 30px; /* Bordes redondeados */
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s;
 
-	.order-online {
-        background-color: #FF4136; /* Color rojo */
-        color: white;
-        padding: 0.8em 1.5em;
-        border-radius: 25px;
-        font-weight: bold;
-        text-decoration: none;
-        transition: background-color 0.3s ease;
+    &:hover {
+      background: #e04a50; /* Tonos más oscuro al hover */
+      transform: translateY(-2px);
     }
-
-     .order-online {
-        background-color: #FF4136;
-        color: white;
-        padding: 0.8em 1.5em;
-        border-radius: 25px;
-        font-weight: bold;
-        text-decoration: none;
-        transition: all 0.3s ease; /* Cambiado para incluir todas las propiedades */
-        display: inline-block; /* Añadido para mejor soporte de transform */
-    }
-
-    .order-online:hover {
-        background-color: #E60000;
-        transform: scale(1.05);
-    }
-
-	nav a {
-        padding: 1em 0.5em;
-        color: var(--black);
-        text-decoration: none;
-        transition: all 0.3s ease;
-        border-radius: 25px;
-        margin: 0 0.5em;
-    }
-
-    .internal-links a {
-        padding: 0.8em 1.5em;
-        font-weight: bold;
-        background-color: transparent;
-        transition: all 0.3s ease;
-    }
-
-    .internal-links a:hover {
-        background-color: #FF4136;
-        color: white;
-        transform: scale(1.05);
-    }
-
-    /* Mantener el estilo existente de Order Online */
-    .order-online {
-        background-color: #FF4136;
-        color: white;
-        padding: 0.8em 1.5em;
-        border-radius: 25px;
-        font-weight: bold;
-        text-decoration: none;
-        transition: all 0.3s ease;
-        display: inline-block;
-    }
-
-    .order-online:hover {
-        background-color: #E60000;
-        transform: scale(1.05);
-    }
-	
+  }
 </style>
+
+<script>
+  // Efecto de cambio de color al hacer scroll (como mypoint.click)
+  document.addEventListener('astro:after-swap', () => {
+    const navbar = document.querySelector('.navbar');
+    
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+  });
+</script>

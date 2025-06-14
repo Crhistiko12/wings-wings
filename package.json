@@ -14,5 +14,9 @@
     "@astrojs/sitemap": "^3.4.1",
     "astro": "^5.9.2",
     "sharp": "^0.34.2"
+  },
+  "devDependencies": {
+    "sass": "^1.89.2",
+    "sass-embedded": "^1.89.2"
   }
 }

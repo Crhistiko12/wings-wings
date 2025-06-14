@@ -13,141 +13,247 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 	<body>
 		<Header />
 		<main>
-			<main>
-    <h1 class="main-title">¡Elige tu Favorito!</h1>
-    
-    <div class="cards-container">
-        <div class="card wings">
-            <img src="/src/assets/alitas-home.jpg" alt="Alitas" class="card-image">
-            <h2>Alitas</h2>
-            <ul class="features">
-                <li>🔥 6, 12 o 24 piezas</li>
-                <li>🌶️ Diferentes niveles de picante</li>
-                <li>🍯 Salsas exclusivas</li>
-                <li>🥕 Acompañamiento de vegetales</li>
-            </ul>
-            <a href="/order" class="order-button">Ordenar Alitas</a>
-        </div>
+  <h1 class="main-title">¡Elige tu Favorito!</h1>
 
-        <div class="vs-circle">VS</div>
-
-        <div class="card burgers">
-            <img src="/src/assets/hamburguesa.jpg" alt="Hamburguesas" class="card-image">
-            <h2>Hamburguesas</h2>
-            <ul class="features">
-                <li>🍔 100% Carne de res</li>
-                <li>🧀 Queso fundido</li>
-                <li>🥬 Vegetales frescos</li>
-                <li>🥓 Extras deliciosos</li>
-            </ul>
-            <a href="/order" class="order-button">Ordenar Hamburguesa</a>
-        </div>
+  <div class="cards-container">
+    <!-- Tarjeta Alitas -->
+  <div class="card wings">
+    <img src="/src/assets/alitas-home.jpg" alt="Alitas" class="card-image">
+    <div class="card-content">
+      <h3>Alitas</h3>
+      <ul class="features">
+        <li>🔥 6, 12 o 24 piezas</li>
+        <li>🌶️ Diferentes niveles de picante</li>
+        <li>🍯 Salsas exclusivas</li>
+        <li>🥕 Acompañamiento de vegetales</li>
+      </ul>
+      <a href="/order" class="order-button">Ordenar Alitas</a>
     </div>
+  </div>
+
+  <!-- Tarjeta Hamburguesas -->
+  <div class="card burgers">
+    <img src="/src/assets/hamburguesa.jpg" alt="Hamburguesas" class="card-image">
+    <div class="card-content">
+      <h3>Hamburguesas</h3>
+      <ul class="features">
+        <li>🍔 100% Carne de res</li>
+        <li>🧀 Queso fundido</li>
+        <li>🥬 Vegetales frescos</li>
+        <li>🥓 Extras deliciosos</li>
+      </ul>
+      <a href="/order" class="order-button">Ordenar Hamburguesa</a>
+    </div>
+  </div>
+
+  <!-- Tarjeta Tacos -->
+  <div class="card tacos">
+    <img src="/src/assets/tacos.jpg" alt="Tacos Mexicanos" class="card-image">
+    <div class="card-content">
+      <h3>Tacos</h3>
+      <ul class="features">
+        <li>🌮 Tortillas hechas a mano</li>
+        <li>🥩 Carne asada premium</li>
+        <li>🌶️ Salsas caseras</li>
+        <li>🥑 Guacamole fresco</li>
+      </ul>
+      <a href="/order" class="order-button">Ordenar Tacos</a>
+    </div>
+  </div>
+</div>
 </main>
 
 <style>
-    .main-title {
-        text-align: center;
-        color: #333;
-        margin-bottom: 2em;
-    }
+    /* Asegurar que el cuerpo de la página no cause desbordamiento */
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
 
-    .cards-container {
-       display: flex;
-        justify-content: center;
-        align-items: stretch;
-        gap: 2em;
-        padding: 1em;
-        max-width: 1200px;
-        margin: 0 auto;
-        flex: 1; /* Añadido para distribuir el espacio equitativamente */
-    }
+/* Estandarizar los títulos */
+.card h3 {
+  font-size: 1.5em;
+  margin-bottom: 1em;
+  text-align: center;
+}
 
-    .card {
-         background: white;
-        border-radius: 15px;
-        padding: 2em;
-        width: 400px; /* Aumentado de 350px a 400px */
-        min-height: 500px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        transition: transform 0.3s ease;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        flex: 1; /* Añadido para que ambas tarjetas tengan el mismo ancho */
-    }
+/* Estandarizar la lista de características */
+.features {
+  padding: 0;
+  list-style: none;
+  margin-bottom: 1.5em;
+}
 
-    .card:hover {
-        transform: translateY(-10px);
-    }
+.features li {
+  margin-bottom: 0.8em;
+  padding-left: 1.5em;
+  text-indent: -1.5em;
+}
+   /* Estilos generales del contenedor */
+   /* Estilos del contenedor de las tarjetas */
 
-    .card-image {
-        width: 100%; /* Cambiado a 100% */
-        height: 200px; /* Altura fija para todas las imágenes */
-        object-fit: cover;
-        border-radius: 10px;
-        margin-bottom: 1em;
-    }
+.main-title {
+  text-align: center;
+}
+   .cards-container {
+   display: flex;
+  justify-content: center; /* Centrado horizontal */
+  align-items: stretch; /* Misma altura para todas */
+  gap: 2em; /* Espacio uniforme entre tarjetas */
+  padding: 2em;
+  width: 100%;
+  max-width: 1200px; /* Máximo ancho del contenedor */
+  margin: 0 auto; /* Centrado en la página */
+}
 
-    .card h2 {
-        text-align: center;
-        color: #333;
-        margin-bottom: 1em;
-    }
+/* Estilos compartidos de cada tarjeta */
+.card {
+   background: white;
+  border-radius: 15px;
+  width: 300px; /* Ancho fijo igual para todas */
+  min-height: 500px; /* Altura mínima fija (ajusta según necesidad) */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  opacity: 0;
+  animation: slideIn 0.8s forwards;
+  flex: 0 0 auto; /* No crecer, no encoger, tamaño base automático */
+  display: flex;
+  flex-direction: column; /* Organiza el contenido verticalmente */
+}
+/* Contenido de la tarjeta */
+.card-content {
+  padding: 1.5em;
+  flex: 1; /* Ocupa todo el espacio disponible */
+  display: flex;
+  flex-direction: column;
+}
 
-    .features {
-        list-style: none;
-        padding: 0;
-        margin-bottom: 2em;
-    }
 
-    .features li {
-         flex-grow: 1; /* Añadido para ocupar espacio disponible */
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        padding: 1em 0;
-    }
+.card:hover {
+  transform: translateY(-10px);
+}
 
-    .vs-circle {
-        background: #FF4136;
-        color: white;
-        width: 60px;
-        height: 60px;
-        border-radius: 60%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-weight: bold;
-        font-size: 1.5em;
-    }
+/* Animación de entrada */
+@keyframes slideIn {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
 
-    .order-button {
-        display: block;
-        background: #FF4136;
-        color: white;
-        text-align: center;
-        padding: 1em;
-        border-radius: 25px;
-        text-decoration: none;
-        font-weight: bold;
-        transition: background-color 0.3s ease;
-    }
+/* Títulos */
+.card h3,
+.card h4 {
+  text-align: center;
+}
 
-    .order-button:hover {
-        background: #E60000;
-    }
+/* Imágenes */
+/* Imágenes estandarizadas */
+.card-image {
+  width: 100%;
+  height: 200px; /* Altura fija para imágenes */
+  object-fit: cover; /* Asegura que la imagen cubra el espacio sin deformarse */
+  border-radius: 15px 15px 0 0;
+}
 
-    @media (max-width: 768px) {
-        .cards-container {
-            flex-direction: column;
-        }
+/* Lista de características */
+.features {
+  padding: 0 1em;
+  list-style: none;
+}
 
-        .vs-circle {
-            margin: 1em 0;
-        }
-    }
+.features li {
+  margin-bottom: 0.5em;
+}
+
+/* Botón de orden */
+.order-button {
+  display: block;
+  margin: 1em auto;
+  text-align: center;
+  background: #ff5c5c;
+  color: white;
+  padding: 0.6em 1.2em;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+   margin-top: auto; /* Empuja el botón hacia abajo */
+  align-self: center; /* Centra el botón horizontalmente */
+}
+
+/* Círculo VS (opcional, si usas) */
+.vs-circle {
+  font-weight: bold;
+  font-size: 1.2em;
+  padding: 1em;
+  border-radius: 50%;
+  background-color: #ffb703;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  animation: fadeIn 1s forwards 0.8s;
+}
+
+/* Animación de aparición para el VS */
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+/* Responsive (cuando la pantalla sea pequeña) */
+@media (max-width: 1000px) {
+  .cards-container {
+    flex-wrap: wrap;
+  }
+  
+  .card {
+    width: 100%;
+    max-width: 350px;
+    min-height: auto;
+  }
+}
+}
+
+@media (max-width: 768px) {
+  .card {
+    width: 100%; /* 1 tarjeta por fila */
+    max-width: 350px;
+  }
+}
+
+
 </style>
+<script>
+    document.querySelector('.menu-toggle').addEventListener('click', function() {
+  document.querySelector('.nav-links').classList.toggle('active');
+});
+    // Agregar animaciones al hacer scroll
+    const observerOptions = {
+        threshold: 0.5
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Corregimos el error usando type assertion
+                const element = entry.target as HTMLElement;
+                element.style.animation = 'slideIn 0.5s forwards';
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.card').forEach(card => {
+        observer.observe(card);
+    });
+</script>
 		</main>
 		<Footer />
 	</body>

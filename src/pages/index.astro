@@ -61,9 +61,77 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
     </div>
   </div>
 </div>
+
+<section id="horarios" class="section">
+    <div class="schedule-container">
+        <h2>Horarios de Atención</h2>
+        <div class="table-wrapper">
+            <table class="schedule-table">
+                <thead>
+                    <tr>
+                        <th>Día</th>
+                        <th>Apertura</th>
+                        <th>Cierre</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Monday</td>
+                        <td>11:00 AM</td>
+                        <td>15:00 PM</td>
+                    </tr>
+                    <tr>
+                        <td>Tuesday</td>
+                        <td>11:00 AM</td>
+                        <td>15:00 PM</td>
+                    </tr>
+                    <tr>
+                        <td>Wednesday</td>
+                        <td>11:00 AM</td>
+                        <td>15:00 PM</td>
+                    </tr>
+                    <tr>
+                        <td>Thursday</td>
+                        <td>11:00 AM</td>
+                        <td>15:00 PM</td>
+                    </tr>
+                    <tr>
+                        <td>Friday</td>
+                        <td>11:00 AM</td>
+                        <td>15:00 PM</td>
+                    </tr>
+                    <tr class="weekend">
+                        <td>Saturday</td>
+                        <td>11:00 AM</td>
+                        <td>15:00 PM</td>
+                    </tr>
+                    <tr class="weekend">
+                        <td>Sunday</td>
+                        <td>10:00 AM</td>
+                        <td>22:00 PM</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
 </main>
 
 <style>
+
+header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+        background-color: rgba(255, 253, 240, 0.85); /* Marfil más suave y transparente */
+        backdrop-filter: blur(10px);
+        padding: 0.5rem 0;
+        box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+        height: 70px;
+        }
     /* Asegurar que el cuerpo de la página no cause desbordamiento */
 body {
   margin: 0;
@@ -176,7 +244,7 @@ body {
   display: block;
   margin: 1em auto;
   text-align: center;
-  background: #ff5c5c;
+  background: #f30303;
   color: white;
   padding: 0.6em 1.2em;
   border-radius: 8px;
@@ -187,19 +255,7 @@ body {
 }
 
 /* Círculo VS (opcional, si usas) */
-.vs-circle {
-  font-weight: bold;
-  font-size: 1.2em;
-  padding: 1em;
-  border-radius: 50%;
-  background-color: #ffb703;
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  animation: fadeIn 1s forwards 0.8s;
-}
+
 
 /* Animación de aparición para el VS */
 @keyframes fadeIn {
@@ -228,6 +284,107 @@ body {
     max-width: 350px;
   }
 }
+ .nav-links a {
+        color: #333;
+        text-decoration: none;
+        font-weight: 600;
+        padding: 0.5rem 1rem;
+        border-radius: 20px;
+        transition: all 0.3s ease;
+        background-color: transparent;
+    }
+
+    .nav-links a:hover {
+        background-color: rgba(255, 65, 54, 0.1);
+        color: #FF4136;
+        transform: translateY(-2px);
+    }
+
+    .nav-links {
+        display: flex;
+        gap: 1.5rem;
+        align-items: center;
+    }
+
+    .section {
+        padding-top: 100px; /* Aumentado el padding superior */
+        min-height: 100vh;
+        scroll-margin-top: 80px; /* Ajuste para el scroll suave */
+    }
+
+    #home {
+        margin-top: 70px; /* Margen adicional para la primera sección */
+    }
+
+    .main-title {
+        padding-top: 2em; /* Espacio adicional para el título */
+    }
+/* horarios */
+ .schedule-container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 2em;
+        background-color: rgba(255, 253, 240, 0.95);
+        border-radius: 20px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    }
+
+    .schedule-container h2 {
+        text-align: center;
+        color: #333;
+        margin-bottom: 1.5em;
+        font-size: 2em;
+    }
+
+    .table-wrapper {
+        overflow-x: auto;
+        border-radius: 15px;
+    }
+
+    .schedule-table {
+        width: 100%;
+        border-collapse: collapse;
+        background: white;
+        overflow: hidden;
+    }
+
+    .schedule-table th,
+    .schedule-table td {
+        padding: 1em;
+        text-align: center;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .schedule-table th {
+        background-color: #FF4136;
+        color: white;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    .schedule-table tr:hover {
+        background-color: rgba(255, 65, 54, 0.05);
+    }
+
+    .schedule-table .weekend {
+        background-color: rgba(255, 253, 240, 0.5);
+    }
+
+    .schedule-table .weekend:hover {
+        background-color: rgba(255, 65, 54, 0.05);
+    }
+
+    @media (max-width: 600px) {
+        .schedule-container {
+            padding: 1em;
+        }
+
+        .schedule-table th,
+        .schedule-table td {
+            padding: 0.8em;
+        }
+    }
 
 
 </style>

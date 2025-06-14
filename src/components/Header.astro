@@ -12,10 +12,8 @@ import { SITE_TITLE } from '../consts';
 
     <!-- Menú de navegación -->
     <nav class="nav-links">
-      <a href="/" class="nav-link">Home</a>
-      <a href="/about" class="nav-link">About</a>
-      <a href="/menu" class="nav-link">Menu</a>
-      <a href="/contact" class="nav-link">Contact</a>
+      <a href="/" class="order-button">Home</a>
+      <a href="/about" class="order-button">About</a>
     </nav>
 
     <!-- Botón CTA -->
@@ -26,6 +24,47 @@ import { SITE_TITLE } from '../consts';
 </header>
 
 <style lang="scss" scoped>
+    
+      header {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          z-index: 1000;
+          background-color: rgba(255, 255, 240, 0.9); /* Color marfil transparente */
+          backdrop-filter: blur(8px);
+          padding: 0.5rem 0;
+          box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+          height: 100px;
+      }
+  
+      nav {
+          max-width: 1200px;
+          margin: 0 auto;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 0 2rem;
+      }
+  
+      .logo-container {
+          padding: 0.5rem 0;
+      }
+  
+      .site-logo {
+          height: 50px; /* Reducido para que no ocupe tanto espacio */
+          width: auto;
+      }
+  
+      .nav-links {
+          gap: 2rem;
+      }
+  
+      /* Ajusta el contenido principal para evitar superposición */
+      :global(main) {
+          padding-top: 80px; /* Ajusta este valor según la altura de tu header */
+      }
+
   .navbar {
     position: fixed; /* Hace que la navbar sea pegajosa */
     top: 0;
@@ -99,10 +138,10 @@ import { SITE_TITLE } from '../consts';
     
     window.addEventListener('scroll', () => {
       if (window.scrollY > 50) {
-        navbar.classList.add('scrolled');
+      navbar?.classList.add('scrolled');
       } else {
-        navbar.classList.remove('scrolled');
+      navbar?.classList.remove('scrolled');
       }
     });
-  });
+    });
 </script>
